@@ -1,14 +1,21 @@
-import './App.css';
-import Card from './components/ui/Card';
+import React from 'react';
+import './App.css'
+import NavBar from './components/ui/Navbar';
 
-function App() {
+
+const App = () => {
   return (
     <div className="App">
-        <h1>Hello World</h1>
-        <Card></Card>
-        <Card></Card>
-    </div>
+      <div className="grid-container">
+      <div className="grid-item">Chart1</div>
+      <div className="grid-item">Chart2</div>
+      <div className="grid-item ">Item 3</div>
+      <div className="grid-item">Item 4</div>
+      <div className="grid-item">Item 5</div>
+      <div className="grid-item">Item 6</div>
+      </div>
+    </div>  
   );
-}
+};
 
 export default App;

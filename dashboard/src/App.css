@@ -1,24 +1,26 @@
-.App {
+.App{
+
+}
+
+
+.grid-item {
+  background-color: #f0f0f0;
+  height: 220px;
+  padding: 20px;
   text-align: center;
+  border-radius: 5px;
 }
 
-
-
-
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.grid-item:hover{
+  border: 1px solid black;
+  translate: 0 1px;
+  box-shadow: 2px 2px rgb(97, 111, 118);
 }
 
-.App-link {
-  color: #61dafb;
+.grid-container{
+  margin: 10px 2px 0 2px;
+  display: grid;
+  grid-template-columns: 3fr 2fr;     
+  grid-template-rows: 1fr; 
+  gap: 10px; 
 }
-
-
