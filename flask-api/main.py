@@ -27,7 +27,8 @@ def mongo_to_dict(mongo_obj):
     mongo_obj['_id'] = str(mongo_obj['_id'])  # Convert ObjectId to string
     return mongo_obj
 
-@app.route('/<lmt>', methods=['GET'])
+#get amount of data filter
+@app.route('/count/<lmt>', methods=['GET'])
 def getbylimit(lmt):
     try:
         limit = int(lmt)  # Convert string to integer
@@ -36,9 +37,39 @@ def getbylimit(lmt):
     except ValueError:
         return jsonify({'error': 'Invalid limit value'}), 400
 
+
+# country filter
+@app.route('/country/<country>', methods=['GET'])
+def getbycountry(country):
+    try:
+        result = [mongo_to_dict(doc) for doc in col.find({"country":f"{country}"})]
+        return jsonify(result)
+    except ValueError:
+        return jsonify({'error': 'Invalid country value'}), 400
+
+#sector filter
+@app.route('/sector/<path:sector>', methods=['GET'])
+def getbysector(sector):
+    try:
+        result = [mongo_to_dict(doc) for doc in col.find({"sector":f"{sector}"})]
+        return jsonify(result)
+    except ValueError:
+        return jsonify({'error': 'Invalid sector value'}), 400
+
+#pestle fitler
+@app.route('/pestle/<path:pestle>', methods=['GET'])
+def getbypestle(pestle):
+    try:
+        result = [mongo_to_dict(doc) for doc in col.find({"pestle":f"{pestle}"})]
+        return jsonify(result)
+    except ValueError:
+        return jsonify({'error': 'Invalid pestle value'}), 400
+    
+
+
 @app.route('/', methods=['GET'])
 def get():
-    return "Hello"
+    return "Welcome to flask Project"
 
 
 
